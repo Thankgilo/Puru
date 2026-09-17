@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Place Called Puru</title>
+<meta name="theme-color" content="#111111">
+<style>
+:root{--bg:#0d0d0f;--card:#17171b;--text:#f7f4ef;--muted:#aaa7a1;--accent:#f0b7c4;--gold:#e8c98c}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at 50% 0,#26202a 0,#0d0d0f 42%);color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6}
+button{font:inherit}
+.screen{min-height:100svh;display:flex;align-items:center;justify-content:center;padding:28px}
+.hero{text-align:center;max-width:700px}
+.eyebrow{letter-spacing:.25em;text-transform:uppercase;color:var(--accent);font-size:.72rem}
+h1{font-family:Georgia,serif;font-size:clamp(3rem,13vw,7rem);line-height:.95;margin:18px 0}
+h2{font-family:Georgia,serif;font-size:clamp(2rem,7vw,3.3rem);line-height:1.05}
+p{color:var(--muted)}
+.btn{border:1px solid #444;border-radius:999px;background:#f5f1eb;color:#111;padding:13px 22px;cursor:pointer;transition:.25s}
+.btn:hover{transform:translateY(-2px)}
+#site{display:none}
+section{max-width:920px;margin:auto;padding:90px 24px}
+.reveal{opacity:0;transform:translateY(22px);transition:.7s ease}
+.reveal.show{opacity:1;transform:none}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.card{background:linear-gradient(145deg,#1b1b20,#121216);border:1px solid #29292f;border-radius:22px;padding:24px;min-height:145px}
+.card b{display:block;margin-bottom:8px}
+.number{color:var(--accent);font-size:.8rem}
+.note{border-left:2px solid var(--accent);padding-left:18px}
+.tapbox{text-align:center;padding:45px 22px;background:#151519;border-radius:28px;border:1px solid #29292f}
+#joke{min-height:72px;margin:20px auto;max-width:560px}
+.music{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.song{background:#16161a;border:1px solid #2a2a30;border-radius:20px;padding:20px}
+.song span{font-size:1.5rem}
+.song small{color:#85828a}
+.envelopes{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.env{padding:25px 18px;border-radius:20px;background:#18181d;border:1px solid #303038;color:white;cursor:pointer;text-align:left}
+.message{display:none;margin-top:10px;color:#c9c5bf}
+.env.open .message{display:block}
+.final{text-align:center;padding-bottom:120px}
+.bigheart{font-size:3rem;animation:pulse 1.8s infinite}
+@keyframes pulse{50%{transform:scale(1.08)}}
+.fade{animation:fade 1.2s ease both}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+footer{text-align:center;color:#666;padding:30px;font-size:.8rem}
+</style>
+</head>
+<body>
+
+<div class="screen" id="landing">
+  <div class="hero fade">
+    <div class="eyebrow">A tiny internet corner</div>
+    <h1>Hey, Puru.</h1>
+    <p>I made you something.</p>
+    <p>Don't overthink it.<br>Don't inspect the code either 😂</p>
+    <button class="btn" onclick="enterSite()">Enter →</button>
+  </div>
+</div>
+
+<div id="site">
+<section class="reveal">
+  <div class="eyebrow">01 · Things I know</div>
+  <h2>A few things about you.</h2>
+  <div class="cards">
+    <div class="card"><div class="number">01</div><b>Acts of service</b><span>You notice the little things people do, even when you don't make a big announcement about it.</span></div>
+    <div class="card"><div class="number">02</div><b>That goofy side</b><span>There is a playful version of you that occasionally escapes. I like that version.</span></div>
+    <div class="card"><div class="number">03</div><b>The disappearing act 😂</b><span>Sometimes you go quiet, then reappear like the previous episode ended on a cliffhanger.</span></div>
+    <div class="card"><div class="number">04</div><b>You carry a lot</b><span>And sometimes you don't need somebody to fix anything. Sometimes you just need a soft place to land.</span></div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="eyebrow">02 · Important experiment</div>
+  <h2>Press the suspicious button.</h2>
+  <div class="tapbox">
+    <p id="joke">I promise this button has absolutely no consequences.</p>
+    <button class="btn" onclick="tapMe()">Tap me</button>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="eyebrow">03 · Music</div>
+  <h2>For the girl who lets music do some of the talking.</h2>
+  <p class="note">I left these as little listening cards rather than pretending I know exactly what song you need on every day. You can replace the titles below with songs that are actually yours.</p>
+  <div class="music">
+    <div class="song"><span>🌙</span><h3>Late-night Puru</h3><small>A song for the version of you that is awake when everybody else has gone quiet.</small></div>
+    <div class="song"><span>☀️</span><h3>Good-day Puru</h3><small>Something bright enough to make the room feel less serious.</small></div>
+    <div class="song"><span>😂</span><h3>Don't take life seriously</h3><small>For when you need a song that has no business being this funny.</small></div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="eyebrow">04 · Open when...</div>
+  <h2>Choose an envelope.</h2>
+  <div class="envelopes">
+    <button class="env" onclick="openEnv(this)">💌 Open when you're having a bad day<div class="message">Today's job is officially cancelled. Drink some water, eat something good, play one ridiculous song, and stop fighting the entire universe for 20 minutes. You can resume being responsible afterwards.</div></button>
+    <button class="env" onclick="openEnv(this)">😂 Open when you need to laugh<div class="message">Congratulations. You opened the emergency laughter department. Unfortunately, all we have is me making a website at a suspicious hour. 😂</div></button>
+    <button class="env" onclick="openEnv(this)">🌙 Open when you can't sleep<div class="message">Put the phone down for a little while, breathe slowly, and let your brain know it doesn't have to solve tomorrow tonight.</div></button>
+    <button class="env" onclick="openEnv(this)">🫂 Open when you need a reminder<div class="message">You don't have to perform, explain, or have everything figured out to deserve kindness.</div></button>
+  </div>
+</section>
+
+<section class="reveal final">
+  <div class="eyebrow">05 · That's it</div>
+  <div class="bigheart">♡</div>
+  <h2>No hidden agenda.</h2>
+  <p>I just wanted to put a smile on your face.</p>
+  <p>You deserve random little beautiful things sometimes.</p>
+  <p style="margin-top:35px;color:#eee">— Aje</p>
+  <p style="font-size:.9rem">P.S. You can keep the website. I spent too much time making it. 😂</p>
+</section>
+<footer>Made as a tiny corner of the internet, just for Puru.</footer>
+</div>
+
+<script>
+function enterSite(){
+  document.getElementById('landing').style.display='none';
+  document.getElementById('site').style.display='block';
+  window.scrollTo(0,0);
+  document.querySelectorAll('.reveal').forEach((el,i)=>setTimeout(()=>el.classList.add('show'),i*120));
+}
+let taps=0;
+function tapMe(){
+  taps++;
+  const j=document.getElementById('joke');
+  const lines=[
+    "See? Nothing happened. Very trustworthy button.",
+    "Okay, something happened. You smiled a little. Don't lie.",
+    "This is getting out of hand. 😂",
+    "Fine. I admit it. The whole button was an excuse to make you stay here."
+  ];
+  j.textContent=lines[Math.min(taps-1,lines.length-1)];
+}
+function openEnv(el){el.classList.toggle('open')}
+</script>
+</body>
+</html>
