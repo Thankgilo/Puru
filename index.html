@@ -1,138 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A Little Place Called Puru</title>
-<meta name="theme-color" content="#111111">
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#050507"><title>The Puru Files</title>
 <style>
-:root{--bg:#0d0d0f;--card:#17171b;--text:#f7f4ef;--muted:#aaa7a1;--accent:#f0b7c4;--gold:#e8c98c}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:radial-gradient(circle at 50% 0,#26202a 0,#0d0d0f 42%);color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6}
-button{font:inherit}
-.screen{min-height:100svh;display:flex;align-items:center;justify-content:center;padding:28px}
-.hero{text-align:center;max-width:700px}
-.eyebrow{letter-spacing:.25em;text-transform:uppercase;color:var(--accent);font-size:.72rem}
-h1{font-family:Georgia,serif;font-size:clamp(3rem,13vw,7rem);line-height:.95;margin:18px 0}
-h2{font-family:Georgia,serif;font-size:clamp(2rem,7vw,3.3rem);line-height:1.05}
-p{color:var(--muted)}
-.btn{border:1px solid #444;border-radius:999px;background:#f5f1eb;color:#111;padding:13px 22px;cursor:pointer;transition:.25s}
-.btn:hover{transform:translateY(-2px)}
-#site{display:none}
-section{max-width:920px;margin:auto;padding:90px 24px}
-.reveal{opacity:0;transform:translateY(22px);transition:.7s ease}
-.reveal.show{opacity:1;transform:none}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
-.card{background:linear-gradient(145deg,#1b1b20,#121216);border:1px solid #29292f;border-radius:22px;padding:24px;min-height:145px}
-.card b{display:block;margin-bottom:8px}
-.number{color:var(--accent);font-size:.8rem}
-.note{border-left:2px solid var(--accent);padding-left:18px}
-.tapbox{text-align:center;padding:45px 22px;background:#151519;border-radius:28px;border:1px solid #29292f}
-#joke{min-height:72px;margin:20px auto;max-width:560px}
-.music{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
-.song{background:#16161a;border:1px solid #2a2a30;border-radius:20px;padding:20px}
-.song span{font-size:1.5rem}
-.song small{color:#85828a}
-.envelopes{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
-.env{padding:25px 18px;border-radius:20px;background:#18181d;border:1px solid #303038;color:white;cursor:pointer;text-align:left}
-.message{display:none;margin-top:10px;color:#c9c5bf}
-.env.open .message{display:block}
-.final{text-align:center;padding-bottom:120px}
-.bigheart{font-size:3rem;animation:pulse 1.8s infinite}
-@keyframes pulse{50%{transform:scale(1.08)}}
-.fade{animation:fade 1.2s ease both}
-@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-footer{text-align:center;color:#666;padding:30px;font-size:.8rem}
-</style>
-</head>
-<body>
-
-<div class="screen" id="landing">
-  <div class="hero fade">
-    <div class="eyebrow">A tiny internet corner</div>
-    <h1>Hey, Puru.</h1>
-    <p>I made you something.</p>
-    <p>Don't overthink it.<br>Don't inspect the code either 😂</p>
-    <button class="btn" onclick="enterSite()">Enter →</button>
-  </div>
-</div>
-
-<div id="site">
-<section class="reveal">
-  <div class="eyebrow">01 · Things I know</div>
-  <h2>A few things about you.</h2>
-  <div class="cards">
-    <div class="card"><div class="number">01</div><b>Acts of service</b><span>You notice the little things people do, even when you don't make a big announcement about it.</span></div>
-    <div class="card"><div class="number">02</div><b>That goofy side</b><span>There is a playful version of you that occasionally escapes. I like that version.</span></div>
-    <div class="card"><div class="number">03</div><b>The disappearing act 😂</b><span>Sometimes you go quiet, then reappear like the previous episode ended on a cliffhanger.</span></div>
-    <div class="card"><div class="number">04</div><b>You carry a lot</b><span>And sometimes you don't need somebody to fix anything. Sometimes you just need a soft place to land.</span></div>
-  </div>
-</section>
-
-<section class="reveal">
-  <div class="eyebrow">02 · Important experiment</div>
-  <h2>Press the suspicious button.</h2>
-  <div class="tapbox">
-    <p id="joke">I promise this button has absolutely no consequences.</p>
-    <button class="btn" onclick="tapMe()">Tap me</button>
-  </div>
-</section>
-
-<section class="reveal">
-  <div class="eyebrow">03 · Music</div>
-  <h2>For the girl who lets music do some of the talking.</h2>
-  <p class="note">I left these as little listening cards rather than pretending I know exactly what song you need on every day. You can replace the titles below with songs that are actually yours.</p>
-  <div class="music">
-    <div class="song"><span>🌙</span><h3>Late-night Puru</h3><small>A song for the version of you that is awake when everybody else has gone quiet.</small></div>
-    <div class="song"><span>☀️</span><h3>Good-day Puru</h3><small>Something bright enough to make the room feel less serious.</small></div>
-    <div class="song"><span>😂</span><h3>Don't take life seriously</h3><small>For when you need a song that has no business being this funny.</small></div>
-  </div>
-</section>
-
-<section class="reveal">
-  <div class="eyebrow">04 · Open when...</div>
-  <h2>Choose an envelope.</h2>
-  <div class="envelopes">
-    <button class="env" onclick="openEnv(this)">💌 Open when you're having a bad day<div class="message">Today's job is officially cancelled. Drink some water, eat something good, play one ridiculous song, and stop fighting the entire universe for 20 minutes. You can resume being responsible afterwards.</div></button>
-    <button class="env" onclick="openEnv(this)">😂 Open when you need to laugh<div class="message">Congratulations. You opened the emergency laughter department. Unfortunately, all we have is me making a website at a suspicious hour. 😂</div></button>
-    <button class="env" onclick="openEnv(this)">🌙 Open when you can't sleep<div class="message">Put the phone down for a little while, breathe slowly, and let your brain know it doesn't have to solve tomorrow tonight.</div></button>
-    <button class="env" onclick="openEnv(this)">🫂 Open when you need a reminder<div class="message">You don't have to perform, explain, or have everything figured out to deserve kindness.</div></button>
-  </div>
-</section>
-
-<section class="reveal final">
-  <div class="eyebrow">05 · That's it</div>
-  <div class="bigheart">♡</div>
-  <h2>No hidden agenda.</h2>
-  <p>I just wanted to put a smile on your face.</p>
-  <p>You deserve random little beautiful things sometimes.</p>
-  <p style="margin-top:35px;color:#eee">— Aje</p>
-  <p style="font-size:.9rem">P.S. You can keep the website. I spent too much time making it. 😂</p>
-</section>
-<footer>Made as a tiny corner of the internet, just for Puru.</footer>
-</div>
-
+:root{--b:#050507;--w:#f6f0e7;--d:#aaa39b;--r:#dca6b5;--g:#d9bd83;--l:#29262b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--b);color:var(--w);font-family:system-ui,sans-serif;overflow-x:hidden}button{font:inherit}.hide{display:none!important}
+#opening{height:100svh;display:grid;place-items:center;position:relative;overflow:hidden;background:#050507}#opening:before{content:"";position:absolute;inset:-40%;background:conic-gradient(from 120deg,transparent,#281b23,transparent 30%,#12101a,transparent 55%);filter:blur(55px);animation:spin 14s linear infinite}
+.grain{position:absolute;inset:0;opacity:.05;background-image:radial-gradient(#fff .6px,transparent .7px);background-size:5px 5px}.opening-inner{position:relative;z-index:2;text-align:center;padding:25px;max-width:700px;animation:rise 1.2s ease}.floaters{position:absolute;inset:0;pointer-events:none;overflow:hidden}.floaters span{position:absolute;color:#dca6b577;font-size:1.2rem;animation:float 5s ease-in-out infinite}.floaters span:nth-child(1){left:12%;top:22%;animation-delay:-1s}.floaters span:nth-child(2){left:79%;top:18%;animation-delay:-3s}.floaters span:nth-child(3){left:66%;top:71%;animation-delay:-2s}.floaters span:nth-child(4){left:23%;top:74%;animation-delay:-4s}.floaters span:nth-child(5){left:88%;top:58%;animation-delay:-1.5s}.floaters span:nth-child(6){left:45%;top:12%;animation-delay:-2.5s}.classified,.kicker{font:10px ui-monospace,monospace;letter-spacing:.32em;color:#777;text-transform:uppercase}.hand{font-family:"Brush Script MT","Segoe Script",cursive;font-size:clamp(5rem,20vw,9rem);line-height:.8;margin:25px 0;transform:rotate(-5deg)}.cursor{display:inline-block;width:1px;height:1em;background:var(--r);animation:blink 1s infinite}.opening-inner p,.dim{color:var(--d);max-width:620px;margin:20px auto}.enter,.btn{border:1px solid #555;background:transparent;color:#eee;border-radius:999px;padding:13px 23px;cursor:pointer}.enter:hover,.btn:hover{background:#eee;color:#111}
+@keyframes spin{to{transform:rotate(360deg)}}@keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-14px) rotate(4deg)}}@keyframes twinkle{0%,100%{opacity:.25;transform:scale(.7)}50%{opacity:1;transform:scale(1.35)}}@keyframes pop{0%{transform:scale(.7);opacity:0}70%{transform:scale(1.15);opacity:1}100%{transform:scale(1);opacity:1}}@keyframes pulse{50%{box-shadow:0 0 0 10px #dca6b500}}@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}@keyframes blink{50%{opacity:0}}
+#app{display:none}.topline{position:fixed;top:0;left:0;height:2px;background:var(--r);width:0;z-index:50}nav{position:fixed;bottom:15px;left:50%;transform:translateX(-50%);z-index:40;background:#0e0d10dd;border:1px solid #302d33;border-radius:999px;padding:6px;backdrop-filter:blur(12px)}nav button{border:0;background:transparent;color:#888;border-radius:999px;padding:8px 11px;font-size:.72rem}section{max-width:900px;margin:auto;padding:110px 24px}.fade{opacity:0;transform:translateY(28px);transition:.8s}.fade.show{opacity:1;transform:none}h1,h2,h3{font-family:Georgia,serif;font-weight:400}h1{font-size:clamp(3rem,11vw,6.5rem);line-height:.92;margin:18px 0}h2{font-size:clamp(2.5rem,9vw,5rem);line-height:.95;margin:18px 0 25px}
+.case,.stage,.player,.constellation{border:1px solid var(--l);border-radius:25px;background:linear-gradient(135deg,#111014,#08080a);padding:27px}.case{position:relative}.stamp{display:inline-block;border:1px solid #6b4e58;color:var(--r);padding:5px 8px;font:9px ui-monospace,monospace;transform:rotate(-3deg)}
+.clues{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:12px;margin-top:28px}.clue{border:1px solid var(--l);padding:22px;border-radius:19px;background:#0d0c0f;cursor:pointer;min-height:145px}.clue:hover{border-color:#5a404a;transform:translateY(-2px)}.clue.found{border-color:#6b4e58;animation:pop .35s ease}.clue.found h3:after{content:" ✓";color:var(--r);font-size:.8em}.dot{animation:twinkle 2.8s ease-in-out infinite}.dot:nth-child(2n){animation-delay:-1.2s}.dot:nth-child(3n){animation-delay:-2s}.clue small{color:#777}.hidden{display:none;color:#d6d0ca}.found .hidden{display:block}
+.memory{min-height:340px;display:grid;place-items:center;text-align:center;position:relative;overflow:hidden;background:radial-gradient(circle,#241820,#09090b 65%);border-radius:28px;border:1px solid var(--l)}.orbit{position:absolute;width:270px;height:270px;border:1px solid #6b475033;border-radius:50%;animation:spin 16s linear infinite}.orbit:after{content:"";position:absolute;top:-4px;left:50%;width:7px;height:7px;border-radius:50%;background:var(--r);box-shadow:0 0 20px var(--r)}.memory-content{position:relative;z-index:2}.memory-word{font:2.2rem Georgia,serif}
+.music{display:flex;align-items:center;gap:17px}.album{width:72px;height:72px;flex:none;border-radius:50%;background:conic-gradient(var(--r),#32242b,var(--g),#171319,var(--r));animation:spin 7s linear infinite paused;box-shadow:0 0 0 5px #ffffff08,0 0 35px #dca6b522}.album.play{animation-play-state:running}.album:after{content:"";display:block;width:18px;height:18px;border-radius:50%;background:#08080a;position:relative;left:27px;top:27px;box-shadow:inset 0 0 0 3px #ffffff15}.play{width:48px;height:48px;border:0;border-radius:50%;background:#eee;color:#111;margin-top:20px;cursor:pointer}.seek{width:100%;margin-top:20px;accent-color:var(--r)}.spotify{display:inline-flex;align-items:center;gap:8px;margin-top:18px;border:1px solid #4c4147;background:#151217;color:#eee;border-radius:999px;padding:11px 16px;text-decoration:none;font-size:.82rem;transition:.25s}.spotify:hover{transform:translateY(-2px);border-color:#8d6876;background:#20191e}.spotify-dot{width:9px;height:9px;border-radius:50%;background:#8fdc9b;box-shadow:0 0 12px #8fdc9b}
+.constellation{height:370px;position:relative;overflow:hidden;background:radial-gradient(circle,#17111a,#07070a)}.dot{position:absolute;width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 14px #fff;cursor:pointer}.dot span{display:none;position:absolute;left:12px;top:10px;width:155px;color:#d6d0ca;font-size:.78rem}.dot:hover span{display:block}.line{position:absolute;height:1px;background:#ffffff18;transform-origin:left}
+.final{min-height:100svh;display:grid;place-items:center;text-align:center}.surprise{font:clamp(2.8rem,9vw,5rem) Georgia,serif;line-height:1}.signature{font:2rem cursive;color:var(--r);margin-top:35px}footer{text-align:center;color:#444;padding:20px 20px 100px;font-size:.7rem}
+@media(max-width:600px){section{padding:80px 20px}}
+</style></head><body>
+<div id="opening"><div class="grain"></div><div class="floaters" aria-hidden="true"><span>✦</span><span>♡</span><span>✦</span><span>·</span><span>♡</span><span>✧</span></div><div class="opening-inner"><div class="classified">ARCHIVE // PRIVATE // 001</div><div class="hand" id="typed"></div><span class="cursor"></span><p>A small collection of things that reminded me of you.<br>Follow the clues. Some things only appear when you touch them.</p><button class="enter" onclick="openFile()">Open the file →</button></div></div>
+<div id="app"><div class="topline" id="top"></div><nav><button onclick="go('file')">File</button><button onclick="go('clues')">Clues</button><button onclick="go('sound')">Sound</button><button onclick="go('end')">End</button></nav>
+<section id="file" class="fade"><div class="kicker">THE PURU FILES</div><h1>Some people leave traces.</h1><p class="dim">Not footprints. Little things. A laugh at the wrong time. A phrase you remember. A song that suddenly sounds different. A person who somehow becomes part of the background music of your days.</p><div class="case"><span class="stamp">FOUND: SOMETHING GOOD</span><h3>File note</h3><p class="dim">This isn't an attempt to explain you. I wouldn't dare 😂. It's just a collection of small observations from someone who has been paying attention.</p></div></section>
+<section id="clues" class="fade"><div class="kicker">INTERACTIVE EVIDENCE</div><h2>Don't read everything.</h2><p class="dim">Tap the things that look suspicious. Some have a second layer.</p><div class="clues">
+<div class="clue" onclick="findClue(this)"><small>CLUE A</small><h3>The quiet moments</h3><p class="hidden">Not every silence needs an investigation. Sometimes a person just needs room to breathe. I learned that.</p></div>
+<div class="clue" onclick="findClue(this)"><small>CLUE B</small><h3>The small things</h3><p class="hidden">You have a way of making ordinary details matter. Which is probably why I remember more little things than I should.</p></div>
+<div class="clue" onclick="findClue(this)"><small>CLUE C</small><h3>The music</h3><p class="hidden">Some songs don't belong to a moment anymore. They become the moment. You know the feeling.</p></div>
+<div class="clue" onclick="findClue(this)"><small>CLUE D</small><h3>The plot twist</h3><p class="hidden">You thought this was going to be another “I miss you” page, didn't you? 😂 Absolutely not.</p></div></div></section>
+<section class="fade"><div class="memory"><div class="orbit"></div><div class="memory-content"><div class="kicker">A MESSAGE APPEARS SLOWLY</div><div class="memory-word" id="mw">Tap the light.</div><p id="mt" class="dim">There is something I wanted to say without making it a big thing.</p><button class="enter" onclick="reveal()">Touch the light ✦</button></div></div></section>
+<section id="sound" class="fade"><div class="kicker">SOUND DEPARTMENT</div><h2>A song, but make it mysterious.</h2><p class="dim">I picked one that fits the soft-but-dangerous energy of this file. Press play here, or let the mystery escape to Spotify.</p><div class="player"><div class="music"><div class="album" id="disc"></div><div><b>Snooze — SZA</b><br><small style="color:#777">Puru soundtrack · allegedly 😂</small></div></div><button class="play" id="playBtn" type="button">▶</button><input class="seek" id="seek" type="range" min="0" max="100" value="0" aria-label="Song progress"><a class="spotify" href="https://open.spotify.com/track/4iZ4pt7kvcaH6Yo8UoZ4s2" target="_blank" rel="noopener"><span class="spotify-dot"></span> Open this song on Spotify ↗</a><div class="dim" style="font-family:Georgia,serif;font-style:italic;margin-top:18px">Some things are easier to feel than explain.</div><audio id="audio" src="puru-song.mp3"></audio></div></section>
+<section class="fade"><div class="kicker">A CONSTELLATION</div><h2>Tap the lights.</h2><p class="dim">Every little star is hiding a note.</p><div class="constellation" id="sky"></div></section>
+<section id="end" class="final fade"><div><div class="classified">ARCHIVE CLOSED · NO RESPONSE REQUIRED</div><div class="surprise">You made it to the end.</div><p class="dim">And because I promised this wasn't going to become a dramatic speech… it won't.</p><p class="dim">Consider this a tiny reminder that somewhere in somebody's day, you can be the reason they stop, smile, and think: <i>“Yeah. I'm glad she exists.”</i></p><div class="signature">— Aje ♡</div><p style="color:#555;font-size:.78rem">P.S. You were supposed to find the hidden message. There are actually three. Keep tapping suspicious things. 😂</p></div></section><footer>END OF FILE // KEEP SMILING</footer></div>
 <script>
-function enterSite(){
-  document.getElementById('landing').style.display='none';
-  document.getElementById('site').style.display='block';
-  window.scrollTo(0,0);
-  document.querySelectorAll('.reveal').forEach((el,i)=>setTimeout(()=>el.classList.add('show'),i*120));
-}
-let taps=0;
-function tapMe(){
-  taps++;
-  const j=document.getElementById('joke');
-  const lines=[
-    "See? Nothing happened. Very trustworthy button.",
-    "Okay, something happened. You smiled a little. Don't lie.",
-    "This is getting out of hand. 😂",
-    "Fine. I admit it. The whole button was an excuse to make you stay here."
-  ];
-  j.textContent=lines[Math.min(taps-1,lines.length-1)];
-}
-function openEnv(el){el.classList.toggle('open')}
-</script>
-</body>
-</html>
+let t='Puru.',i=0,found=0;
+function type(){if(i<t.length){document.getElementById('typed').textContent+=t[i++];setTimeout(type,190)}}type();
+function openFile(){document.getElementById('opening').classList.add('hide');document.getElementById('app').style.display='block';document.querySelectorAll('.fade').forEach((x,n)=>setTimeout(()=>x.classList.add('show'),n*100));buildSky();sparkles()}
+function go(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
+function findClue(x){let was=x.classList.contains('found');x.classList.toggle('found');if(!was){found++;pop(x);if(found===3){document.getElementById('mw').textContent='Okay… you found the good part.';document.getElementById('mt').textContent='Three clues. One tiny reward. And yes, you absolutely did investigate something that said “suspicious.” 😂'}}}
+function pop(el){for(let n=0;n<8;n++){let s=document.createElement('span');s.textContent=['✦','♡','·'][n%3];s.style.cssText='position:absolute;left:'+ (20+Math.random()*60)+'%;top:50%;color:#dca6b5;font-size:'+(10+Math.random()*12)+'px;pointer-events:none;animation:float .8s ease-out forwards;z-index:4';el.style.position='relative';el.appendChild(s);setTimeout(()=>s.remove(),850)}}
+function reveal(){document.getElementById('mw').textContent='You matter.';document.getElementById('mt').textContent='That is the whole message. No puzzle to solve. No hidden expectation. Just something I thought you should occasionally be reminded of.'}
+const a=document.getElementById('audio'),d=document.getElementById('disc'),s=document.getElementById('seek'),pb=document.getElementById('playBtn');
+function toggleAudio(){if(a.paused){a.play().then(()=>{d.classList.add('play');pb.textContent='❚❚'}).catch(()=>alert('For the built-in player, place an MP3 beside index.html named “puru-song.mp3”. Spotify is ready below.'))}else{a.pause();d.classList.remove('play');pb.textContent='▶'}}
+pb.addEventListener('click',toggleAudio);a.ontimeupdate=()=>{if(a.duration)s.value=a.currentTime/a.duration*100};s.oninput=()=>{if(a.duration)a.currentTime=s.value/100*a.duration};a.onended=()=>{d.classList.remove('play');pb.textContent='▶'};
+function buildSky(){let sky=document.getElementById('sky'),notes=['A random laugh','Late-night conversations','Your stubborn “I’m fine”','The soft side you don’t always show','Music at the right moment','The little things','Aje was here 😂'],pts=[[18,27],[35,18],[53,31],[72,20],[82,45],[61,58],[30,66]];pts.forEach((p,n)=>{let x=document.createElement('div');x.className='dot';x.style.left=p[0]+'%';x.style.top=p[1]+'%';x.style.animationDelay=(-n*.37)+'s';let q=document.createElement('span');q.textContent=notes[n];x.appendChild(q);sky.appendChild(x)});for(let n=0;n<pts.length-1;n++){let aa=pts[n],b=pts[n+1],dx=b[0]-aa[0],dy=b[1]-aa[1],len=Math.sqrt(dx*dx+dy*dy),ang=Math.atan2(dy,dx)*180/Math.PI,l=document.createElement('div');l.className='line';l.style.left=aa[0]+'%';l.style.top=aa[1]+'%';l.style.width=len+'%';l.style.transform='rotate('+ang+'deg)';sky.appendChild(l)}}
+function sparkles(){let root=document.getElementById('app');root.addEventListener('click',e=>{if(e.target.closest('button,a,input,.clue'))return;let s=document.createElement('span');s.textContent='✦';s.style.cssText='position:fixed;left:'+e.clientX+'px;top:'+e.clientY+'px;color:#dca6b5;pointer-events:none;z-index:100;animation:float .7s ease-out forwards';root.appendChild(s);setTimeout(()=>s.remove(),700)})}
+window.addEventListener('scroll',()=>{let h=document.documentElement.scrollHeight-innerHeight;document.getElementById('top').style.width=(h?scrollY/h*100:0)+'%'});
+</script></body></html>
